@@ -19,6 +19,12 @@ import { EchartComponent } from './pages/dashboard/echart/echart.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { MessagingService } from '../app/services/messaging.service'
 
 @NgModule({
   declarations: [
@@ -31,6 +37,10 @@ import { environment } from '../environments/environment';
     ResetPasswordComponent
   ],
   imports: [
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
     NbSpinnerModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -51,7 +61,7 @@ import { environment } from '../environments/environment';
     Ng2SmartTableModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

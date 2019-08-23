@@ -26,15 +26,14 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/firebase-messaging-sw.js",
               "src/manifest.webmanifest"
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

@@ -41,7 +41,12 @@ export class LoginComponent implements OnInit {
       };
     }, err => {
       console.log(err)
-      this.toastr.danger('Login',err.error.message)
+      if(!err.error.message){
+        this.toastr.danger('Login','Enable Backend to respond');
+      }
+      else{
+        this.toastr.danger('Login',err.error.message)
+      }
     });
   }
 }
