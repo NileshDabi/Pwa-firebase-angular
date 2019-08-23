@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   
   userForm: FormGroup;
   token;
+  userToken:any;
 
   constructor(private builder:FormBuilder, 
               private http:HttpClient, 
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
               private toastr:ToastrService) { }
 
   ngOnInit() {
+    this.userToken = localStorage.getItem('userToken');
     this.userForm = this.builder.group({
       email: ['',[Validators.required,Validators.email]],
       password: ['',[Validators.required]],
